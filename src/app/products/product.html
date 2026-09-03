@@ -1,0 +1,117 @@
+<section class="products-page">
+
+  <div class="products-heading">
+
+    <p>CASUAL BUT NOT CASUAL</p>
+
+    <h1>
+      {{ title }}
+    </h1>
+
+    <span>
+      {{ subtitle }}
+    </span>
+
+  </div>
+
+
+  <div
+    class="breadcrumb">
+
+    <a routerLink="/">
+      Home
+    </a>
+
+    <span>/</span>
+
+    <span>
+      {{ title }}
+    </span>
+
+  </div>
+
+
+  <div
+    class="products-grid">
+
+    <article
+      class="product-card"
+      *ngFor="let product of products">
+
+      <a
+        [routerLink]="['/product', product.id]"
+        class="product-link">
+
+        <div class="product-image">
+
+          <img
+            [src]="product.image"
+            [alt]="product.name"
+            (error)="imageError($event)">
+
+          <span
+            *ngIf="product.isPromotion"
+            class="sale-label">
+            SALE
+          </span>
+
+        </div>
+
+      </a>
+
+
+      <div class="product-details">
+
+        <div class="category">
+          {{ product.gender }} ·
+          {{ product.category }}
+        </div>
+
+        <a
+          [routerLink]="['/product', product.id]"
+          class="product-name">
+
+          {{ product.name }}
+
+        </a>
+
+        <div class="rating">
+          ★ {{ product.rating }}
+        </div>
+
+        <div class="price">
+
+          <strong>
+            ${{ product.price | number:'1.2-2' }}
+          </strong>
+
+          <del *ngIf="product.oldPrice">
+            ${{ product.oldPrice | number:'1.2-2' }}
+          </del>
+
+        </div>
+
+        <button
+          class="add-button"
+          (click)="addToCart(product)">
+
+          Add to Cart
+
+        </button>
+
+      </div>
+
+    </article>
+
+  </div>
+
+
+  <div
+    *ngIf="products.length === 0"
+    class="empty">
+
+    No products found.
+
+  </div>
+
+</section>
