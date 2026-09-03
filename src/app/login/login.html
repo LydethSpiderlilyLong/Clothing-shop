@@ -1,0 +1,72 @@
+<section class="login-page">
+
+  <div class="login-box">
+
+    <p class="brand">
+      CASUAL BUT NOT CASUAL
+    </p>
+
+    <h1>
+      Welcome Back
+    </h1>
+
+    <p class="subtitle">
+      Sign in to continue shopping.
+    </p>
+
+
+    <form
+      (ngSubmit)="login()">
+
+      <label>
+        Username
+      </label>
+
+      <input
+        type="text"
+        name="username"
+        [(ngModel)]="username"
+        placeholder="Enter username">
+
+
+      <label>
+        Password
+      </label>
+
+      <input
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        placeholder="Enter password">
+
+
+      @if (errorMessage) {
+
+        <p class="error">
+          {{ errorMessage }}
+        </p>
+
+      }
+
+
+      <button
+        type="submit">
+
+        Login
+
+      </button>
+
+    </form>
+
+
+    <a
+      routerLink="/"
+      class="back">
+
+      ← Continue Shopping
+
+    </a>
+
+  </div>
+
+</section>
