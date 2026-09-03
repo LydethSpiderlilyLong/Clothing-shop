@@ -1,0 +1,126 @@
+<header class="header">
+
+  <div class="top-header">
+
+    <a routerLink="/" class="logo">
+      <span>CASUAL</span>
+      <strong>BUT NOT CASUAL</strong>
+    </a>
+
+    <nav class="main-nav">
+
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">
+        Home
+      </a>
+
+      <div class="nav-dropdown">
+
+        <a routerLink="/women">
+          Women
+        </a>
+
+        <div class="dropdown-menu">
+
+          <a routerLink="/women/clothing">
+            Clothing
+          </a>
+
+          <a routerLink="/women/shoes">
+            Shoes
+          </a>
+
+          <a routerLink="/women/accessories">
+            Accessories
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="nav-dropdown">
+
+        <a routerLink="/men">
+          Men
+        </a>
+
+        <div class="dropdown-menu">
+
+          <a routerLink="/men/clothing">
+            Clothing
+          </a>
+
+          <a routerLink="/men/shoes">
+            Shoes
+          </a>
+
+          <a routerLink="/men/accessories">
+            Accessories
+          </a>
+
+        </div>
+
+      </div>
+
+    </nav>
+
+    <div class="header-actions">
+
+      <select aria-label="Country">
+        <option>Cambodia</option>
+        <option>Thailand</option>
+        <option>Vietnam</option>
+        <option>Singapore</option>
+      </select>
+
+      <select aria-label="Language">
+        <option>English</option>
+        <option>Khmer</option>
+        <option>Chinese</option>
+      </select>
+
+      <button class="icon-button">
+        ♡
+      </button>
+
+      @if (authService.user(); as username) {
+
+        <div class="user-area">
+          <span>Hi, {{ username }}</span>
+
+          <button
+            class="logout-button"
+            (click)="logout()">
+            Logout
+          </button>
+        </div>
+
+      } @else {
+
+        <a
+          routerLink="/login"
+          class="login-button">
+          Login
+        </a>
+
+      }
+
+      <a
+        routerLink="/cart"
+        class="cart-button">
+
+        🛒
+
+        <span class="cart-count">
+          {{ cartCount() }}
+        </span>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</header>
