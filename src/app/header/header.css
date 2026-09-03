@@ -1,0 +1,160 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #ffffff;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.top-header {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 0 6%;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #111;
+  line-height: 1;
+}
+
+.logo span {
+  font-size: 22px;
+  letter-spacing: 4px;
+}
+
+.logo strong {
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin-top: 6px;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.main-nav a {
+  color: #222;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.main-nav a:hover,
+.main-nav .active {
+  text-decoration: underline;
+}
+
+.nav-dropdown {
+  position: relative;
+  padding: 25px 0;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 68px;
+  left: -15px;
+  width: 180px;
+  display: none;
+  background: white;
+  border: 1px solid #eeeeee;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.nav-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 14px 18px;
+}
+
+.dropdown-menu a:hover {
+  background: #f7f7f7;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-actions select {
+  border: 1px solid #ddd;
+  padding: 8px;
+  background: white;
+}
+
+.icon-button,
+.cart-button {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.cart-button {
+  position: relative;
+  text-decoration: none;
+  color: #111;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  color: white;
+  border-radius: 50%;
+  font-size: 10px;
+}
+
+.login-button {
+  color: #111;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.user-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.logout-button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+@media (max-width: 1000px) {
+
+  .top-header {
+    flex-wrap: wrap;
+    padding: 15px 4%;
+  }
+
+  .main-nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .header-actions select {
+    display: none;
+  }
+}
