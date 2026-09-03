@@ -1,0 +1,280 @@
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <p>NEW SEASON</p>
+
+    <h1>
+      STYLE THAT<br>
+      FEELS LIKE YOU
+    </h1>
+
+    <p class="hero-description">
+      Discover casual fashion made for everyday life.
+    </p>
+
+    <div class="hero-buttons">
+
+      <a routerLink="/women" class="primary-button">
+        Shop Women
+      </a>
+
+      <a routerLink="/men" class="secondary-button">
+        Shop Men
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CATEGORIES -->
+
+<section class="section">
+
+  <div class="section-heading">
+    <p>CATEGORIES</p>
+    <h2>Shop By Category</h2>
+  </div>
+
+  <div class="category-grid">
+
+    <a
+      routerLink="/women/clothing"
+      class="category-card">
+
+      <div class="category-image">
+        <img
+          src="/images/women/clothing/women-dress.jpg"
+          alt="Women Clothing"
+          (error)="imageError($event)">
+      </div>
+
+      <h3>Women Clothing</h3>
+
+    </a>
+
+
+    <a
+      routerLink="/women/shoes"
+      class="category-card">
+
+      <div class="category-image">
+        <img
+          src="/images/women/shoes/women-sneakers.jpg"
+          alt="Women Shoes"
+          (error)="imageError($event)">
+      </div>
+
+      <h3>Women Shoes</h3>
+
+    </a>
+
+
+    <a
+      routerLink="/women/accessories"
+      class="category-card">
+
+      <div class="category-image">
+        <img
+          src="/images/women/accessories/handbag.jpg"
+          alt="Women Accessories"
+          (error)="imageError($event)">
+      </div>
+
+      <h3>Women Accessories</h3>
+
+    </a>
+
+
+    <a
+      routerLink="/men/clothing"
+      class="category-card">
+
+      <div class="category-image">
+        <img
+          src="/images/men/clothing/men-shirt.jpg"
+          alt="Men Clothing"
+          (error)="imageError($event)">
+      </div>
+
+      <h3>Men Clothing</h3>
+
+    </a>
+
+
+    <a
+      routerLink="/men/shoes"
+      class="category-card">
+
+      <div class="category-image">
+        <img
+          src="/images/men/shoes/men-sneakers.jpg"
+          alt="Men Shoes"
+          (error)="imageError($event)">
+      </div>
+
+      <h3>Men Shoes</h3>
+
+    </a>
+
+
+    <a
+      routerLink="/men/accessories"
+      class="category-card">
+
+      <div class="category-image">
+        <img
+          src="/images/men/accessories/wallet.jpg"
+          alt="Men Accessories"
+          (error)="imageError($event)">
+      </div>
+
+      <h3>Men Accessories</h3>
+
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- PROMOTION -->
+
+<section class="promotion-banner">
+
+  <div>
+
+    <p>LIMITED TIME</p>
+
+    <h2>
+      UP TO 30% OFF
+    </h2>
+
+    <p>
+      Selected styles for the new season.
+    </p>
+
+    <a
+      routerLink="/women"
+      class="primary-button">
+      Shop Sale
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- PROMOTIONS -->
+
+<section class="section">
+
+  <div class="section-heading">
+    <p>SALE</p>
+    <h2>Promotion</h2>
+  </div>
+
+  <div class="product-grid">
+
+    <div
+      class="product-card"
+      *ngFor="let product of promotions">
+
+      <a [routerLink]="['/product', product.id]">
+
+        <div class="product-image">
+
+          <img
+            [src]="product.image"
+            [alt]="product.name"
+            (error)="imageError($event)">
+
+          <span class="sale-label">
+            SALE
+          </span>
+
+        </div>
+
+        <div class="product-info">
+
+          <p>
+            {{ product.gender }} · {{ product.category }}
+          </p>
+
+          <h3>
+            {{ product.name }}
+          </h3>
+
+          <strong>
+            ${{ product.price | number:'1.2-2' }}
+          </strong>
+
+          <del *ngIf="product.oldPrice">
+            ${{ product.oldPrice | number:'1.2-2' }}
+          </del>
+
+        </div>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- BEST SELLERS -->
+
+<section class="section">
+
+  <div class="section-heading">
+    <p>POPULAR</p>
+    <h2>Best Sellers</h2>
+  </div>
+
+  <div class="product-grid">
+
+    <div
+      class="product-card"
+      *ngFor="let product of bestSellers">
+
+      <a [routerLink]="['/product', product.id]">
+
+        <div class="product-image">
+
+          <img
+            [src]="product.image"
+            [alt]="product.name"
+            (error)="imageError($event)">
+
+        </div>
+
+        <div class="product-info">
+
+          <p>
+            {{ product.gender }} · {{ product.category }}
+          </p>
+
+          <h3>
+            {{ product.name }}
+          </h3>
+
+          <strong>
+            ${{ product.price | number:'1.2-2' }}
+          </strong>
+
+        </div>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
