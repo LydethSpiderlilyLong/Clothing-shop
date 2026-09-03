@@ -1,0 +1,148 @@
+<section class="cart-page">
+
+  <div class="cart-heading">
+
+    <p>YOUR SHOPPING BAG</p>
+
+    <h1>
+      Shopping Cart
+    </h1>
+
+  </div>
+
+
+  @if (items().length > 0) {
+
+    <div class="cart-layout">
+
+      <div class="cart-items">
+
+        @for (item of items(); track item.id) {
+
+          <div class="cart-item">
+
+            <img
+              [src]="item.image"
+              [alt]="item.name">
+
+            <div class="item-info">
+
+              <p>
+                {{ item.gender }} ·
+                {{ item.category }}
+              </p>
+
+              <h3>
+                {{ item.name }}
+              </h3>
+
+              <strong>
+                ${{ item.price | number:'1.2-2' }}
+              </strong>
+
+              <div class="quantity">
+
+                <button
+                  (click)="decrease(item.id)">
+                  −
+                </button>
+
+                <span>
+                  {{ item.quantity }}
+                </span>
+
+                <button
+                  (click)="increase(item.id)">
+                  +
+                </button>
+
+              </div>
+
+              <button
+                class="remove"
+                (click)="remove(item.id)">
+
+                Remove
+
+              </button>
+
+            </div>
+
+          </div>
+
+        }
+
+      </div>
+
+
+      <aside class="summary">
+
+        <h2>
+          Order Summary
+        </h2>
+
+        <div class="summary-row">
+
+          <span>
+            Items
+          </span>
+
+          <span>
+            {{ cartService.itemCount() }}
+          </span>
+
+        </div>
+
+        <div class="summary-row total">
+
+          <span>
+            Total
+          </span>
+
+          <strong>
+            ${{ total() | number:'1.2-2' }}
+          </strong>
+
+        </div>
+
+        <button
+          class="checkout"
+          (click)="checkout()">
+
+          Checkout
+
+        </button>
+
+      </aside>
+
+    </div>
+
+  } @else {
+
+    <div class="empty-cart">
+
+      <div class="empty-icon">
+        🛒
+      </div>
+
+      <h2>
+        Your cart is empty
+      </h2>
+
+      <p>
+        Looks like you haven't added anything yet.
+      </p>
+
+      <a
+        routerLink="/"
+        class="shop-button">
+
+        Continue Shopping
+
+      </a>
+
+    </div>
+
+  }
+
+</section>
